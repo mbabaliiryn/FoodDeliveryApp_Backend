@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_13_122729) do
+ActiveRecord::Schema.define(version: 2020_12_13_150621) do
 
   create_table "address_workers", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -115,7 +115,12 @@ ActiveRecord::Schema.define(version: 2020_12_13_122729) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email"
+    t.string "entity_type"
+    t.bigint "entity_id"
+    t.bigint "contact_number"
     t.index ["email"], name: "index_users_on_email"
+    t.index ["entity_id"], name: "index_users_on_entity_id"
+    t.index ["entity_type"], name: "index_users_on_entity_type"
   end
 
   create_table "working_hours", force: :cascade do |t|
