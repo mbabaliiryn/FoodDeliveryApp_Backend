@@ -16,6 +16,7 @@ class UsersController < ApplicationController
       render json: { error: 'Invalid username or password' }, status: :unprocessable_entity
     end
   end
+end
 
 
   def login
@@ -75,11 +76,12 @@ def get_delivering_restaurants
 end
 
   private
+
   def address_params
     params.permit(:line1,:line2,:city,:state,:country,:zipcode)
   end
 
   def user_params
-    params.permit(:first_name, :last_name, :email, :password_digest, :entity_type, :contact_number,)
+    params.permit(:first_name, :last_name, :email, :password_digest, :entity_type, :contact_number)
   end
 end
